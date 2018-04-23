@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 class TableController extends Controller
 {
     /**
@@ -47,7 +49,8 @@ class TableController extends Controller
      */
     public function show($id)
     {
-        //
+        print($id); 
+        $this->createTables($id);
     }
 
     /**
@@ -82,5 +85,16 @@ class TableController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function createTables($suffix){
+        Schema::create('users'.$suffix, function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
     }
 }

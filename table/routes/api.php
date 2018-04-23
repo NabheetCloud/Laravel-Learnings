@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' =>'/table'], function(){
     Route::get('/',['as'=>'table','uses'=>'TableController@index']);
     Route::get('/post',['as'=>'table.postSensorData','uses'=>'TableController@postSensorData']);
+    Route::get('/post/{suffix}',['as'=>'table.postSensorData','uses'=>'TableController@show']);
 });
