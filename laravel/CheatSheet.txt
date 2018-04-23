@@ -1,0 +1,37 @@
+ Create Controller - php artisan make:controller PostsController
+ create controller with resource -  php artisan make:controller PostsContoller --resource
+ routes list - php artisan route:list
+ Migrate mode to databhase - php artisan migrate
+ Make model - php artisan make:model Post -m
+ insert data - php artisan tinker
+ count of data - App\Post::count()
+ create entries -  $post = new App\Post();/$post->title = "Post One";$post->body = "Post Body One";/$post->save()
+ enable login - php artisan make:auth
+ Migration for adding a new column to existing one - php artisan make:migration add_user_id_to_post
+ undo migration  - php artisan migrate rollback
+
+ <!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <title>{{config('app.name','NabheetApp')}}</title>
+
+ 
+    </head>
+    <body>
+        @include('inc.navbar')
+        <div class="container">
+            @include('inc.messages')
+      @yield('content')
+        </div>
+        <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'article-ckeditor' );
+        </script>
+    </body>
+</html>
+
+ 
