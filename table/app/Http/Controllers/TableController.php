@@ -73,7 +73,19 @@ class TableController extends Controller
         echo $post->email;
 
     }
- 
+    public function createUser($suffix,$id,$userid)
+    {
+       echo $suffix.$id;
+       $table = 'users'.$suffix;
+       $user  = new User();
+       $user->setTable($table);
+       $user->id = $userid;
+       $user->name = $id;
+       $user->email = $id;
+       $user->password = $id;
+       $user->remember_token = $id;
+       $user->save();
+    }
     /**
      * Update the specified resource in storage.
      *

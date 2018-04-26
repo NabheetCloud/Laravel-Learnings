@@ -23,4 +23,5 @@ Route::group(['prefix' =>'/table'], function(){
     Route::get('/post',['as'=>'table.postSensorData','uses'=>'TableController@postSensorData']);
     Route::get('/post/{suffix}',['as'=>'table.postSensorData','uses'=>'TableController@show']);
     Route::get('/edit/{suffix}/{suffix2}',['as'=>'table.postSensorData','uses'=>'TableController@edit']);
+    Route::get('/create/{suffix}/{suffix2}/{userid}',['as'=>'table.postSensorData','uses'=>'TableController@createUser']);
 });
