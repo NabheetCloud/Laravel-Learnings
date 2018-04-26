@@ -16,9 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });  
-//Route::get('table', 'TableController@index');
+Route::get('table', 'TableController@index');
 Route::group(['prefix' =>'/table'], function(){
+   
     Route::get('/',['as'=>'table','uses'=>'TableController@index']);
     Route::get('/post',['as'=>'table.postSensorData','uses'=>'TableController@postSensorData']);
     Route::get('/post/{suffix}',['as'=>'table.postSensorData','uses'=>'TableController@show']);
+    Route::get('/edit/{suffix}/{suffix2}',['as'=>'table.postSensorData','uses'=>'TableController@edit']);
 });

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\User;
 class TableController extends Controller
 {
     /**
@@ -59,9 +60,18 @@ class TableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($suffix,$id)
     {
-        //
+       echo $suffix.$id;
+       $table = 'users'.$suffix;
+       $user  = new User();
+       $user->setTable($table);
+        $post = $user->find($id);
+        echo '<BR>';
+        echo $post->name;
+        echo '<BR>';
+        echo $post->email;
+
     }
  
     /**
